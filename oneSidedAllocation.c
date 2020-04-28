@@ -65,6 +65,9 @@ int main(void)
     printf("posXlead2[3] = %i", (int) CIAData.posXlead2[3]);
 }
 
+// takes in a float array of two elements. The first element is a magnetic moment command 
+// for a single magnetorquer. The second element takes on integer values between 1-5 to 
+// indicate which magnetorquer to write to (1.0 indicates positive x face magnetorquer). 
 static void oneSidedAllocation(void *pvParameters) {
     float* parameters = (float*) pvParameters;
     float command = *parameters;
