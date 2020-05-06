@@ -42,17 +42,20 @@ struct CIADataStruct
     // TODO: add check variables for each magnetorquer
 };
 
-struct pvParameters {
+struct allocationParameters {
 	double command;
 	unsigned int whichMag;
 };
 
 const char offLead[4] = {0,0,0,16};
-const unsigned int divnum = 256;
-const unsigned int multnum = 4096;
+const unsigned int separateBytes = 256;
+const unsigned int cycleLength = 4096;
 
 // function declarations
-void oneSidedAllocation(struct pvParameters *parameters,
+void setMags(void *pvParameters);
+void oneSidedAllocation(struct allocationParameters *parameters,
+						struct CIADataStruct *CIAData);
+void twoSidedAllocation(struct allocationParameters *parameters,
 						struct CIADataStruct *CIAData);
 
 #endif // CIA_ALLOCATION_H
