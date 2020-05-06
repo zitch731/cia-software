@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// function definitions
+// TODO need to add to header file
 static int check(void *pvParameters);
 
 // example data struct definition
