@@ -21,6 +21,8 @@ int main(void)
     printf("posXlead2[1] = %i\n", (int) CIAData.posXlead2[1]); // 0
     printf("posXlead2[2] = %i\n", (int) CIAData.posXlead2[2]); // 0
     printf("posXlead2[3] = %i\n", (int) CIAData.posXlead2[3]); // 16
-  
-    return(0);  
+
+    return(0);
 }
+
+// test comment
