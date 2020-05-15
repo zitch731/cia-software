@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <math.h>
 #include "ciaAllocation.h"
+#include "oneSidedAllocation.c"
+#include "setMags.c"
 
 int main(void)
 {
     // oneSidedAllocation
     struct CIADataStruct CIAData;
-    struct pvParameters parameters;
+    struct allocationParameters parameters;
 
     parameters.command = 5.5;
     parameters.whichMag = 1;
@@ -21,6 +23,6 @@ int main(void)
     printf("posXlead2[1] = %i\n", (int) CIAData.posXlead2[1]); // 0
     printf("posXlead2[2] = %i\n", (int) CIAData.posXlead2[2]); // 0
     printf("posXlead2[3] = %i\n", (int) CIAData.posXlead2[3]); // 16
-  
-    return(0);  
+
+    return(0);
 }
