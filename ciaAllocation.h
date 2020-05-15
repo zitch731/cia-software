@@ -1,3 +1,4 @@
+#include <stdbool.h>
 
 #ifndef CIA_ALLOCATION_H
 #define CIA_ALLOCATION_H
@@ -47,12 +48,17 @@ struct allocationParameters {
 	unsigned int whichMag;
 };
 
+struct setMagsParameters {
+    double commands[3];
+    bool magStatus[5];
+};
+
 const char offLead[4] = {0,0,0,16};
 const unsigned int separateBytes = 256;
 const unsigned int cycleLength = 4096;
 
 // function declarations
-void setMags(void *pvParameters);
+void setMags(struct setMagsParameters *parameters);
 void oneSidedAllocation(struct allocationParameters *parameters,
 						struct CIADataStruct *CIAData);
 void twoSidedAllocation(struct allocationParameters *parameters,
