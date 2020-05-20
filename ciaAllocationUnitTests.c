@@ -190,5 +190,7 @@ int main(void)
         printf("posZlead2 != offLead\n");
     }
 
+    printf("%i out of 10 leads are correct\n", passedLeads);
+
     return(0);
 }
