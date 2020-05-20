@@ -14,20 +14,20 @@ void setMags(struct setMagsParameters *parameters,
 
     // printf("magStatus[1] = %s\n", *(magStatus+1) ? "true" : "false");
 
-    //code
+    // code
     double command;
     int firstMag;
-    bool posXworking;
-    bool negXworking;
+    bool posMagWorking;
+    bool negMagWorking;
 
     // xMags
     command = xCommand;
     firstMag = 1;
-    posXworking = *magStatus;
-    negXworking = *(magStatus + 1);
+    posMagWorking = *magStatus;
+    negMagWorking = *(magStatus + 1);
 
     // if both mags are working
-    if (posXworking && negXworking) {
+    if (posMagWorking && negMagWorking) {
         struct allocationParameters posParam;
         struct allocationParameters negParam;
         posParam.command = command/2;
@@ -38,7 +38,7 @@ void setMags(struct setMagsParameters *parameters,
         oneSidedAllocation(&negParam, CIAData);
 
     // if positive mag works
-    } else if (posXworking) {
+    } else if (posMagWorking) {
         struct allocationParameters posParam;
         posParam.command = command;
         posParam.whichMag = firstMag;
@@ -49,7 +49,7 @@ void setMags(struct setMagsParameters *parameters,
         }
 
     // if negative mag works
-    } else if (negXworking) {
+    } else if (negMagWorking) {
         struct allocationParameters negParam;
         negParam.command = -command;
         negParam.whichMag = firstMag + 1;
