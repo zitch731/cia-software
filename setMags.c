@@ -2,9 +2,8 @@
 #include <stdbool.h>
 #include "ciaAllocation.h"
 
-void setMags(struct setMagsParameters *parameters) {
-    // creation of CIA data struct
-    struct CIADataStruct CIAData;
+void setMags(struct setMagsParameters *parameters,
+             struct CIADataStruct *CIAData) {
 
     // assign variables
     double* commands = (*parameters).commands;
@@ -13,6 +12,6 @@ void setMags(struct setMagsParameters *parameters) {
     double yCommand = *(commands + 1);
     double zCommand = *(commands + 2);
 
-    printf("magStatus[1] = %s", *(magStatus+1) ? "true" : "false");
+    printf("magStatus[1] = %s\n", *(magStatus+1) ? "true" : "false");
 
 }

@@ -58,7 +58,8 @@ const unsigned int separateBytes = 256;
 const unsigned int cycleLength = 4096;
 
 // function declarations
-void setMags(struct setMagsParameters *parameters);
+void setMags(struct setMagsParameters *parameters,
+             struct CIADataStruct *CIAData);
 void oneSidedAllocation(struct allocationParameters *parameters,
 						struct CIADataStruct *CIAData);
 void twoSidedAllocation(struct allocationParameters *parameters,
