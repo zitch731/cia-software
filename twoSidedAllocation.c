@@ -1,15 +1,9 @@
 #include <stdio.h>
+#include <math.h>
 
-// function definition
-static int twoSidedAllocation(void *pvParameters);
+void twoSidedAllocation(struct allocationParameters *parameters,
+						struct CIADataStruct *CIAData) {
 
-// main function (for testing)
-int main(void)
-{
-
-}
-
-static int twoSidedAllocation(void *pvParameters) {
 
 }
 
