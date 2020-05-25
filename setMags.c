@@ -34,15 +34,15 @@ void setMags(struct setMagsParameters *parameters,
         negParam.command = -command/2;
         posParam.whichMag = firstMag;
         negParam.whichMag = firstMag + 1;
-        oneSidedAllocation(&posParam, CIAData);
-        oneSidedAllocation(&negParam, CIAData);
+        allocation(&posParam, CIAData);
+        allocation(&negParam, CIAData);
 
     // if positive mag works
     } else if (posMagWorking) {
         struct allocationParameters posParam;
         posParam.command = command;
         posParam.whichMag = firstMag;
-        oneSidedAllocation(&posParam, CIAData);
+        allocation(&posParam, CIAData);
         for (int i = 0; i < 4; ++i) {
             CIAData->negXlead1[i] = offLead[i];
             CIAData->negXlead2[i] = offLead[i];
@@ -53,7 +53,7 @@ void setMags(struct setMagsParameters *parameters,
         struct allocationParameters negParam;
         negParam.command = -command;
         negParam.whichMag = firstMag + 1;
-        oneSidedAllocation(&negParam, CIAData);
+        allocation(&negParam, CIAData);
         for (int i = 0; i < 4; ++i) {
             CIAData->posXlead1[i] = offLead[i];
             CIAData->posXlead2[i] = offLead[i];

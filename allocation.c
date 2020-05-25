@@ -4,7 +4,7 @@
 // takes in a float array of two elements. The first element is a magnetic moment command
 // for a single magnetorquer. The second element takes on integer values between 1-5 to
 // indicate which magnetorquer to write to (1.0 indicates positive x face magnetorquer).
-void oneSidedAllocation(struct allocationParameters *parameters, struct CIADataStruct *CIAData) {
+void allocation(struct allocationParameters *parameters, struct CIADataStruct *CIAData) {
 
     // convert command to duty cycle
     float absDutyCycle = 0.4; // example duty cycle

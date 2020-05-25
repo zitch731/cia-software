@@ -1,5 +1,6 @@
 #include <stdbool.h>
 
+
 #ifndef CIA_ALLOCATION_H
 #define CIA_ALLOCATION_H
 
@@ -60,9 +61,7 @@ const unsigned int cycleLength = 4096;
 // function declarations
 void setMags(struct setMagsParameters *parameters,
              struct CIADataStruct *CIAData);
-void oneSidedAllocation(struct allocationParameters *parameters,
-						struct CIADataStruct *CIAData);
-void twoSidedAllocation(struct allocationParameters *parameters,
+void allocation(struct allocationParameters *parameters,
 						struct CIADataStruct *CIAData);
 
 #endif // CIA_ALLOCATION_H

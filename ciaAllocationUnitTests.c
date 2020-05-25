@@ -3,21 +3,21 @@
 #include <stdbool.h>
 
 #include "ciaAllocation.h"
-#include "oneSidedAllocation.c"
+#include "allocation.c"
 #include "setMags.c"
 
 int main(void)
 {
-    // oneSidedAllocation
-    printf("oneSidedAllocation Unit Test\n");
+    // allocation
+    printf("allocation Unit Test\n");
     struct CIADataStruct CIAData1;
     struct allocationParameters parameters1;
 
     parameters1.command = 5.5;
     parameters1.whichMag = 1;
-    oneSidedAllocation(&parameters1,&CIAData1);
+    allocation(&parameters1,&CIAData1);
 
-    // outputs are not based on real calculations (check oneSidedAllocation
+    // outputs are not based on real calculations (check allocation
     // under "convert command to duty cycle"
     printf("posXlead1[0] = %i\n", (int) CIAData1.posXlead1[0]); // 0
     printf("posXlead1[1] = %i\n", (int) CIAData1.posXlead1[1]); // 0
@@ -45,7 +45,7 @@ int main(void)
     setMags(&parameters2, &CIAData2);
 
     // value every powered lead should take on when using example duty cycle
-    // (see oneSidedAllocation)
+    // (see allocation)
     char onLead[] = {0, 0, 102, 6};
 
     int passedLeads = 0;
