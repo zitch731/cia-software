@@ -11,15 +11,69 @@ int main(void)
     parameters1.whichMag = 1;
     allocation(&parameters1, &CIAData1);
 
-    printf("posXlead1[0] = %d\n", (int) CIAData1.posXlead1[0]); // 0
-    printf("posXlead1[1] = %d\n", (int) CIAData1.posXlead1[1]); // 0
-    printf("posXlead1[2] = %d\n", (int) CIAData1.posXlead1[2]); // 102
-    printf("posXlead1[3] = %d\n", (int) CIAData1.posXlead1[3]); // 6
+    printf("posXlead1[0] = %d, should be %d\n", (int) CIAData1.posXlead1[0], 0); // 0
+    printf("posXlead1[1] = %d, should be %d\n", (int) CIAData1.posXlead1[1], 0); // 0
+    printf("posXlead1[2] = %d, should be %d\n", (int) CIAData1.posXlead1[2], 102); // 102
+    printf("posXlead1[3] = %d, should be %d\n", (int) CIAData1.posXlead1[3], 6); // 6
 
-    printf("posXlead2[0] = %d\n", (int) CIAData1.posXlead2[0]); // 0
-    printf("posXlead2[1] = %d\n", (int) CIAData1.posXlead2[1]); // 0
-    printf("posXlead2[2] = %d\n", (int) CIAData1.posXlead2[2]); // 0
-    printf("posXlead2[3] = %d\n", (int) CIAData1.posXlead2[3]); // 16
+    printf("posXlead2[0] = %d, should be %d\n", (int) CIAData1.posXlead2[0], 0); // 0
+    printf("posXlead2[1] = %d, should be %d\n", (int) CIAData1.posXlead2[1], 0); // 0
+    printf("posXlead2[2] = %d, should be %d\n", (int) CIAData1.posXlead2[2], 0); // 0
+    printf("posXlead2[3] = %d, should be %d\n", (int) CIAData1.posXlead2[3], 16); // 16
+    printf("\n");
+
+    // allocation "full on" edge case
+    printf("allocation \"Full On\"\n");
+
+    parameters1.command = 1.0 * maxMoment;
+    parameters1.whichMag = 2;
+    allocation(&parameters1, &CIAData1);
+
+    printf("negXlead1[0] = %d, should be %d\n", (int) CIAData1.negXlead1[0], 0); // 0
+    printf("negXlead1[1] = %d, should be %d\n", (int) CIAData1.negXlead1[1], 16); // 16
+    printf("negXlead1[2] = %d, should be %d\n", (int) CIAData1.negXlead1[2], 0); // 0
+    printf("negXlead1[3] = %d, should be %d\n", (int) CIAData1.negXlead1[3], 0); // 0
+
+    printf("negXlead2[0] = %d, should be %d\n", (int) CIAData1.negXlead2[0], 0); // 0
+    printf("negXlead2[1] = %d, should be %d\n", (int) CIAData1.negXlead2[1], 0); // 0
+    printf("negXlead2[2] = %d, should be %d\n", (int) CIAData1.negXlead2[2], 0); // 0
+    printf("negXlead2[3] = %d, should be %d\n", (int) CIAData1.negXlead2[3], 16); // 16
+    printf("\n");
+
+    // allocation "full off" edge case
+    printf("allocation \"Full Off\"\n");
+
+    parameters1.command = 0.0 * maxMoment;
+    parameters1.whichMag = 3;
+    allocation(&parameters1, &CIAData1);
+
+    printf("posYlead1[0] = %d, should be %d\n", (int) CIAData1.posYlead1[0], 0); // 0
+    printf("posYlead1[1] = %d, should be %d\n", (int) CIAData1.posYlead1[1], 0); // 0
+    printf("posYlead1[2] = %d, should be %d\n", (int) CIAData1.posYlead1[2], 0); // 0
+    printf("posYlead1[3] = %d, should be %d\n", (int) CIAData1.posYlead1[3], 16); // 16
+
+    printf("posYlead2[0] = %d, should be %d\n", (int) CIAData1.posYlead2[0], 0); // 0
+    printf("posYlead2[1] = %d, should be %d\n", (int) CIAData1.posYlead2[1], 0); // 0
+    printf("posYlead2[2] = %d, should be %d\n", (int) CIAData1.posYlead2[2], 0); // 0
+    printf("posYlead2[3] = %d, should be %d\n", (int) CIAData1.posYlead2[3], 16); // 16
+    printf("\n");
+
+    // allocation negative case
+    printf("allocation Negative Command\n");
+
+    parameters1.command = -0.65 * maxMoment;
+    parameters1.whichMag = 4;
+    allocation(&parameters1, &CIAData1);
+
+    printf("negYlead1[0] = %d, should be %d\n", (int) CIAData1.negYlead1[0], 0); // 0
+    printf("negYlead1[1] = %d, should be %d\n", (int) CIAData1.negYlead1[1], 0); // 0
+    printf("negYlead1[2] = %d, should be %d\n", (int) CIAData1.negYlead1[2], 0); // 0
+    printf("negYlead1[3] = %d, should be %d\n", (int) CIAData1.negYlead1[3], 16); // 16
+
+    printf("negYlead2[0] = %d, should be %d\n", (int) CIAData1.negYlead2[0], 0); // 0
+    printf("negYlead2[1] = %d, should be %d\n", (int) CIAData1.negYlead2[1], 0); // 0
+    printf("negYlead2[2] = %d, should be %d\n", (int) CIAData1.negYlead2[2], 102); // 102
+    printf("negYlead2[3] = %d, should be %d\n", (int) CIAData1.negYlead2[3], 10); // 10
     printf("\n");
 
     // setMags
@@ -50,10 +104,10 @@ int main(void)
         }
     }
     if (passed) {
-        printf("posXlead1 == onLead\n");
+        printf("posXlead1 == {0, 0, 51, 3}\n");
         passedLeads++;
     } else {
-        printf("posXlead1 != onLead\n");
+        printf("posXlead1 != {0, 0, 51, 3}\n");
     }
 
     // posXlead2
@@ -92,10 +146,10 @@ int main(void)
         }
     }
     if (passed) {
-        printf("negXlead2 == onLead\n");
+        printf("negXlead2 == {0, 0, 51, 3}\n");
         passedLeads++;
     } else {
-        printf("negXlead2 != onLead\n");
+        printf("negXlead2 != {0, 0, 51, 3}\n");
     }
 
     // posYlead1
@@ -106,10 +160,10 @@ int main(void)
         }
     }
     if (passed) {
-        printf("posYlead1 == onLead\n");
+        printf("posYlead1 == {0, 0, 51, 3}\n");
         passedLeads++;
     } else {
-        printf("posYlead1 != onLead\n");
+        printf("posYlead1 != {0, 0, 51, 3}\n");
     }
 
     // posYlead2
@@ -148,10 +202,10 @@ int main(void)
         }
     }
     if (passed) {
-        printf("negYlead2 == onLead\n");
+        printf("negYlead2 == {0, 0, 51, 3}\n");
         passedLeads++;
     } else {
-        printf("negYlead2 != onLead\n");
+        printf("negYlead2 != {0, 0, 51, 3}\n");
     }
 
     // posZlead1
@@ -162,10 +216,10 @@ int main(void)
         }
     }
     if (passed) {
-        printf("posZlead1 == onLead\n");
+        printf("posZlead1 == {0, 0, 102, 6}\n");
         passedLeads++;
     } else {
-        printf("posZlead1 != onLead\n");
+        printf("posZlead1 != {0, 0, 102, 6}\n");
     }
 
     // posZlead2
