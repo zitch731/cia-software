@@ -13,30 +13,28 @@ int main(void)
     struct CIADataStruct CIAData1;
     struct allocationParameters parameters1;
 
-    parameters1.command = 5.5;
+    parameters1.command = 0.4 * maxMoment;
     parameters1.whichMag = 1;
-    allocation(&parameters1,&CIAData1);
+    allocation(&parameters1, &CIAData1);
 
-    // outputs are not based on real calculations (check allocation
-    // under "convert command to duty cycle"
-    printf("posXlead1[0] = %i\n", (int) CIAData1.posXlead1[0]); // 0
-    printf("posXlead1[1] = %i\n", (int) CIAData1.posXlead1[1]); // 0
-    printf("posXlead1[2] = %i\n", (int) CIAData1.posXlead1[2]); // 102
-    printf("posXlead1[3] = %i\n", (int) CIAData1.posXlead1[3]); // 6
+    printf("posXlead1[0] = %d\n", (int) CIAData1.posXlead1[0]); // 0
+    printf("posXlead1[1] = %d\n", (int) CIAData1.posXlead1[1]); // 0
+    printf("posXlead1[2] = %d\n", (int) CIAData1.posXlead1[2]); // 102
+    printf("posXlead1[3] = %d\n", (int) CIAData1.posXlead1[3]); // 6
 
-    printf("posXlead2[0] = %i\n", (int) CIAData1.posXlead2[0]); // 0
-    printf("posXlead2[1] = %i\n", (int) CIAData1.posXlead2[1]); // 0
-    printf("posXlead2[2] = %i\n", (int) CIAData1.posXlead2[2]); // 0
-    printf("posXlead2[3] = %i\n", (int) CIAData1.posXlead2[3]); // 16
+    printf("posXlead2[0] = %d\n", (int) CIAData1.posXlead2[0]); // 0
+    printf("posXlead2[1] = %d\n", (int) CIAData1.posXlead2[1]); // 0
+    printf("posXlead2[2] = %d\n", (int) CIAData1.posXlead2[2]); // 0
+    printf("posXlead2[3] = %d\n", (int) CIAData1.posXlead2[3]); // 16
     printf("\n");
 
     // setMags
     printf("setMags Unit Test\n");
     struct CIADataStruct CIAData2;
     struct setMagsParameters parameters2;
-    parameters2.commands[0] = 3;
-    parameters2.commands[1] = 3;
-    parameters2.commands[2] = 3;
+    parameters2.commands[0] = 0.4 * maxMoment;
+    parameters2.commands[1] = 0.4 * maxMoment;
+    parameters2.commands[2] = 0.4 * maxMoment;
     int i;
     for (i = 0; i < 5; ++i) {
         parameters2.magStatus[i] = true;
@@ -53,7 +51,7 @@ int main(void)
     // posXlead1
     passed = true;
     for (i = 0; i < 4; ++i) {
-        if (CIAData2.posXlead1[i] != onLead[i]){
+        if (CIAData2.posXlead1[i] != onLead[i]/2){
             passed = false;
         }
     }
@@ -95,7 +93,7 @@ int main(void)
     // negXlead2
     passed = true;
     for (i = 0; i < 4; ++i) {
-        if (CIAData2.negXlead2[i] != onLead[i]){
+        if (CIAData2.negXlead2[i] != onLead[i]/2){
             passed = false;
         }
     }
@@ -109,7 +107,7 @@ int main(void)
     // posYlead1
     passed = true;
     for (i = 0; i < 4; ++i) {
-        if (CIAData2.posYlead1[i] != onLead[i]){
+        if (CIAData2.posYlead1[i] != onLead[i]/2){
             passed = false;
         }
     }
@@ -151,7 +149,7 @@ int main(void)
     // negYlead2
     passed = true;
     for (i = 0; i < 4; ++i) {
-        if (CIAData2.negYlead2[i] != onLead[i]){
+        if (CIAData2.negYlead2[i] != onLead[i]/2){
             passed = false;
         }
     }

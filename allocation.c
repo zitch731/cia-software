@@ -6,8 +6,14 @@
 // indicate which magnetorquer to write to (1.0 indicates positive x face magnetorquer).
 void allocation(struct allocationParameters *parameters, struct CIADataStruct *CIAData) {
 
+    double command = parameters->command;
     // convert command to duty cycle
-    float absDutyCycle = 0.4; // example duty cycle
+    //float absDutyCycle = 0.4; // example duty cycle
+    double absDutyCycle = command / maxMoment;
+
+    if (absDutyCycle < 0) {
+        absDutyCycle = -absDutyCycle;
+    }
 
     // compute values for each lead
     char onLead[4];
@@ -25,8 +31,16 @@ void allocation(struct allocationParameters *parameters, struct CIADataStruct *C
     onLead[2] = (char) (offStart % separateBytes);
     onLead[3] = (char) (offStart / separateBytes);
 
+    // edge case for "all on" or "all off"
+    if(onLead[3] >= 16) {
+        onLead[1] = 16;
+        onLead[3] = 0;
+    } else if (onLead[3] == 0 && onLead[4] == 0) {
+        onLead[3] = 16;
+    }
+
     // assign powered and non-powered leads based off command direction
-    if (parameters->command >= 0.0) {
+    if (command >= 0.0) {
     	for (i = 0; i < 4; ++i) {
     		lead1[i] = onLead[i];
     		lead2[i] = offLead[i];
