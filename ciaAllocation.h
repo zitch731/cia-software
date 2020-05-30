@@ -1,8 +1,9 @@
-#include <stdbool.h>
-
-
 #ifndef CIA_ALLOCATION_H
 #define CIA_ALLOCATION_H
+
+#include <stdbool.h>
+#include <stdio.h>
+#include <math.h>
 
 // CIA data struct definition
 struct CIADataStruct
@@ -68,11 +69,11 @@ struct setMagsParameters {
     bool magStatus[5];
 };
 
-const char offLead[4] = {0,0,0,16};
-const double maxMoment = 0.0515; // 0.0515 Am2 is max dipole moment
+static const char offLead[4] = {0,0,0,16};
+static const double maxMoment = 0.0515; // 0.0515 Am2 is max dipole moment
                                  // from SOC-i PDR
-const unsigned int separateBytes = 256;
-const unsigned int cycleLength = 4096;
+static const unsigned int separateBytes = 256;
+static const unsigned int cycleLength = 4096;
 
 // function declarations
 void setMags(struct setMagsParameters *parameters,
