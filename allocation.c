@@ -34,7 +34,7 @@ void allocation(struct allocationParameters *parameters, struct CIADataStruct *C
     if(onLead[3] >= 16) {
         onLead[1] = 16;
         onLead[3] = 0;
-    } else if (onLead[3] == 0 && onLead[3] == 0) {
+    } else if (onLead[2] == 0 && onLead[3] == 0) {
         onLead[3] = 16;
     }
 
