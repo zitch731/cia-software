@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <math.h>
-#include <stdbool.h>
-
 #include "ciaAllocation.h"
-#include "allocation.c"
-#include "setMags.c"
 
 int main(void)
 {

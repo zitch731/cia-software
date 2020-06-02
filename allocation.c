@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <math.h>
+#include "ciaAllocation.h"
 
 // takes in a float array of two elements. The first element is a magnetic moment command
 // for a single magnetorquer. The second element takes on integer values between 1-5 to
@@ -35,7 +34,7 @@ void allocation(struct allocationParameters *parameters, struct CIADataStruct *C
     if(onLead[3] >= 16) {
         onLead[1] = 16;
         onLead[3] = 0;
-    } else if (onLead[3] == 0 && onLead[4] == 0) {
+    } else if (onLead[3] == 0 && onLead[3] == 0) {
         onLead[3] = 16;
     }
 
