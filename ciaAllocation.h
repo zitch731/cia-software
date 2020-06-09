@@ -58,6 +58,7 @@ struct CIADataStruct
     unsigned char posZlead2[4]; //!< 4 commands for the positive z face magnetorquer, lead 2
 };
 
+// inputs for allocation
 struct allocationParameters {
 	// contains a single magnetic moment command
 	double command;
@@ -65,12 +66,19 @@ struct allocationParameters {
 	unsigned int whichMag;
 };
 
+// inputs for setMags
 struct setMagsParameters {
     // contains the magnetic moment commands in the x, y, and z directions
     double commands[3];
     // contains the operational status of each of the five magnetorquers
     bool magStatus[5];
 };
+
+// PCA9685 device address with read
+static const char devAddrRead = ???????????????????????
+
+// PCA9685 device address with write
+static const char devAddrWrite = ??????????????????????
 
 // Register addresses for each magnetorquer lead. Each array corresponds to a
 // lead in the "CIADataStruct". Each of the 4 addresses corresponds to one of
