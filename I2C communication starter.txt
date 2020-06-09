@@ -11,7 +11,7 @@ accessed, the OBC can either write the corresponding register command (see the
 "CIADataStruct", which is in ciaAllocation.h), or it can read from the register.
 
 Both the address bytes of the chip (one for reading and one for writing), along 
-with the address bytes of each device register are stored in ciaAllocation.h.
+with the address bytes of each register are stored in ciaAllocation.h.
 
 Example:
 OBC:  START
