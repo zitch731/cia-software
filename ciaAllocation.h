@@ -75,29 +75,29 @@ struct setMagsParameters {
 };
 
 // PCA9685 device address with read
-static const char devAddrRead = ???????????????????????
+static const unsigned char devAddrRead = 143; // 10001111
 
 // PCA9685 device address with write
-static const char devAddrWrite = ??????????????????????
+static const unsigned char devAddrWrite = 142; // 10001110
 
-// Register addresses for each magnetorquer lead. Each array corresponds to a
-// lead in the "CIADataStruct". Each of the 4 addresses corresponds to one of
-// the 4 commands in each lead array. See "I2C communication" file for more info
-// on sending commands to the board.
-static const char posXlead1Addr[4] = {6, 7, 8, 9};
-static const char posXlead2Addr[4] = {10, 11, 12, 13};
+// Register addresses for each magnetorquer lead. Each array of addresses has a
+// corresponding array of commands in the "CIADataStruct". As with the
+// "CIADataStruct", each array corresponds to a single magnetorquer lead. See
+// "I2C communication" file for more info on sending commands to the board.
+static const unsigned char posXlead1Addr[4] = {14, 15, 16, 17}; // MTQ2_A
+static const unsigned char posXlead2Addr[4] = {18, 19, 20, 21}; // MTQ2_B
 
-static const char negXlead1Addr[4] = {14, 15, 16, 17};
-static const char negXlead2Addr[4] = {18, 19, 20, 21};
+static const unsigned char negXlead1Addr[4] = {6, 7, 8, 9};     // MTQ1_A
+static const unsigned char negXlead2Addr[4] = {10, 11, 12, 13}; // MTQ1_B
 
-static const char posYlead1Addr[4] = {22, 23, 24, 25};
-static const char posYlead2Addr[4] = {26, 27, 28, 29};
+static const unsigned char posYlead1Addr[4] = {22, 23, 24, 25}; // MTQ3_A
+static const unsigned char posYlead2Addr[4] = {26, 27, 28, 29}; // MTQ3_B
 
-static const char negYlead1Addr[4] = {30, 31, 32 33};
-static const char negYlead2Addr[4] = {34, 35, 36, 37};
+static const unsigned char negYlead1Addr[4] = {30, 31, 32, 33}; // MTQ4_A
+static const unsigned char negYlead2Addr[4] = {34, 35, 36, 37}; // MTQ4_B
 
-static const char posZlead1Addr[4] = {38, 39, 40, 41};
-static const char posZlead2Addr[4] = {42, 43, 44, 45};
+static const unsigned char posZlead1Addr[4] = {38, 39, 40, 41}; // MTQ5_A
+static const unsigned char posZlead2Addr[4] = {42, 43, 44, 45}; // MTQ5_B
 
 
 // helpful constants
