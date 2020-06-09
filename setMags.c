@@ -3,8 +3,6 @@
 void setMags(struct setMagsParameters *parameters,
              struct CIADataStruct *CIAData) {
 
-    // printf("magStatus[1] = %s\n", *(magStatus+1) ? "true" : "false");
-
     unsigned int i,j, firstMag;
     double command;
     bool posMagWorking, negMagWorking;
@@ -13,9 +11,10 @@ void setMags(struct setMagsParameters *parameters,
     unsigned char *posLead1[4], *posLead2[4], *negLead1[4], *negLead2[4];
     unsigned char dummyLead[4]; // dummy lead (for -z face that doesn't exist)
 
+    // loops through x mags, y mags, and z mag
     for (i = 0; i < 3; ++i) {
         switch (i) {
-            case 0:
+            case 0: // x mags
                 for (j = 0; j < 4; ++j) {
                     posLead1[j] = &CIAData->posXlead1[j];
                     posLead2[j] = &CIAData->posXlead2[j];
@@ -23,7 +22,7 @@ void setMags(struct setMagsParameters *parameters,
                     negLead2[j] = &CIAData->negXlead2[j];
                 }
                 break;
-            case 1:
+            case 1: // y mags
                 for (j = 0; j < 4; ++j) {
                     posLead1[j] = &CIAData->posYlead1[j];
                     posLead2[j] = &CIAData->posYlead2[j];
@@ -31,7 +30,7 @@ void setMags(struct setMagsParameters *parameters,
                     negLead2[j] = &CIAData->negYlead2[j];
                 }
                 break;
-            case 2:
+            case 2: // z mags
                 for (j = 0; j < 4; ++j) {
                     posLead1[j] = &CIAData->posZlead1[j];
                     posLead2[j] = &CIAData->posZlead2[j];

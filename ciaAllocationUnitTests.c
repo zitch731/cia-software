@@ -1,8 +1,10 @@
 #include "ciaAllocation.h"
 
+// ciaAllocationUnitTests: Prints to the terminal the predicted outputs and the
+// actual outputs of both functions, setMags and allocation.
 int main(void)
 {
-    // allocation middle case
+    /// allocation middle case
     printf("allocation Unit Test\n");
     struct CIADataStruct CIAData1;
     struct allocationParameters parameters1;
@@ -22,7 +24,7 @@ int main(void)
     printf("posXlead2[3] = %d, should be %d\n", (int) CIAData1.posXlead2[3], 16); // 16
     printf("\n");
 
-    // allocation "full on" edge case
+    /// allocation "full on" edge case
     printf("allocation \"Full On\"\n");
 
     parameters1.command = 1.0 * maxMoment;
@@ -40,7 +42,7 @@ int main(void)
     printf("negXlead2[3] = %d, should be %d\n", (int) CIAData1.negXlead2[3], 16); // 16
     printf("\n");
 
-    // allocation "full off" edge case
+    /// allocation "full off" edge case
     printf("allocation \"Full Off\"\n");
 
     parameters1.command = 0.0 * maxMoment;
@@ -58,7 +60,7 @@ int main(void)
     printf("posYlead2[3] = %d, should be %d\n", (int) CIAData1.posYlead2[3], 16); // 16
     printf("\n");
 
-    // allocation negative case
+    /// allocation negative case
     printf("allocation Negative Command\n");
 
     parameters1.command = -0.65 * maxMoment;
@@ -76,7 +78,7 @@ int main(void)
     printf("negYlead2[3] = %d, should be %d\n", (int) CIAData1.negYlead2[3], 10); // 10
     printf("\n");
 
-    // setMags
+    /// setMags
     printf("setMags Unit Test\n");
     struct CIADataStruct CIAData2;
     struct setMagsParameters parameters2;
