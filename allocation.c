@@ -1,8 +1,6 @@
 #include "ciaAllocation.h"
 
-// takes in a float array of two elements. The first element is a magnetic moment command
-// for a single magnetorquer. The second element takes on integer values between 1-5 to
-// indicate which magnetorquer to write to (1.0 indicates positive x face magnetorquer).
+// see ciaAllocation.h for function description
 void allocation(struct allocationParameters *parameters, struct CIADataStruct *CIAData) {
 
     double command = parameters->command;

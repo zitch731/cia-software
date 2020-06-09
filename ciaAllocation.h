@@ -9,7 +9,7 @@
 // every magnetorquer.
 struct CIADataStruct
 {
-    /** definitions of the 4 bytes in each lead
+    /** definitions of the 4 bytes in each lead (pg. 21 of data sheet)
     register	Bit	    Access	Value 	    Description
     LEDX_ON_L	[7:0]	R/W	    0000 0000*	LED_ON count for LEDX, 8 LSBs
     LEDX_ON_H	[7:5]	R	    000*	    non-writable
@@ -32,9 +32,9 @@ struct CIADataStruct
     Remark: When all LED outputs are configured as ‘always OFF’, the prescale counter and
     all associated PWM cycle timing logic are disabled. If LEDn_ON_H[4] and
     LEDn_OFF_H[4] are set at the same time, the LEDn_OFF_H[4] function takes
-    precedence.
+    precedence. (pg. 24 of data sheet)
 
-    see PCA9685 data sheet for more info
+    see PCA9685 data sheet for more info: https://cdn-shop.adafruit.com/datasheets/PCA9685.pdf
     */
 
     // positive x-face commands
@@ -60,7 +60,7 @@ struct CIADataStruct
 
 // inputs for allocation
 struct allocationParameters {
-	// contains a single magnetic moment command
+	// contains a single magnetic moment command (units Am2)
 	double command;
 	// designates which magnetorquer to write to (1 is posX, 2 is negX, and so on)
 	unsigned int whichMag;
@@ -68,7 +68,7 @@ struct allocationParameters {
 
 // inputs for setMags
 struct setMagsParameters {
-    // contains the magnetic moment commands in the x, y, and z directions
+    // contains the magnetic moment commands in the x, y, and z directions (units Am2)
     double commands[3];
     // contains the operational status of each of the five magnetorquers
     bool magStatus[5];
@@ -83,7 +83,8 @@ static const unsigned char devAddrWrite = 142; // 10001110
 // Register addresses for each magnetorquer lead. Each array of addresses has a
 // corresponding array of commands in the "CIADataStruct". As with the
 // "CIADataStruct", each array corresponds to a single magnetorquer lead. See
-// "I2C communication" file for more info on sending commands to the board.
+// "I2C communication starter" file for more info on sending commands to the
+// board. Each array was labeled according to the CIA board schematic.
 static const unsigned char posXlead1Addr[4] = {14, 15, 16, 17}; // MTQ2_A
 static const unsigned char posXlead2Addr[4] = {18, 19, 20, 21}; // MTQ2_B
 

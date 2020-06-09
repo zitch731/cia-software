@@ -1,5 +1,6 @@
 #include "ciaAllocation.h"
 
+// see ciaAllocation.h for function description
 void setMags(struct setMagsParameters *parameters,
              struct CIADataStruct *CIAData) {
 

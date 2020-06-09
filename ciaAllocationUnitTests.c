@@ -1,7 +1,7 @@
 #include "ciaAllocation.h"
 
-// ciaAllocationUnitTests: Prints to the terminal the predicted outputs and the
-// actual outputs of both functions, setMags and allocation.
+// ciaAllocationUnitTests: Prints to the terminal predicted outputs and actual
+// outputs for both functions, setMags and allocation.
 int main(void)
 {
     /// allocation middle case
